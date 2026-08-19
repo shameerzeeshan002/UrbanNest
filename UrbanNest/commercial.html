@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore premium commercial spaces — offices, retail stores, warehouses and corporate towers with UrbanNest.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="UrbanNest - Real Estate">
+<meta property="og:description" content="Explore premium commercial spaces — offices, retail stores, warehouses and corporate towers with UrbanNest.">
+<meta property="og:type" content="website">
+<title>UrbanNest - Commercial Properties</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    position:fixed;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(10px);
+}
+
+nav h2{
+    color:#f5b841;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#f5b841;
+}
+
+/* HERO */
+
+.commercial-hero{
+    height:70vh;
+    background:url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80") center/cover;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:0 60px;
+}
+
+.commercial-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.72);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:650px;
+    animation:fadeUp 1s ease;
+}
+
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.hero-content span{
+    color:#f5b841;
+}
+
+.hero-content p{
+    color:#ccc;
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#f5b841;
+    color:black;
+    text-decoration:none;
+    border-radius:8px;
+    transition:.3s;
+    font-weight:600;
+}
+
+.hero-btn:hover{
+    transform:translateY(-4px);
+}
+
+/* SEARCH */
+
+.search-bar{
+    width:92%;
+    margin:-40px auto 50px;
+    background:#161b22;
+    padding:20px;
+    border-radius:12px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr) auto;
+    gap:15px;
+    position:relative;
+    z-index:5;
+}
+
+.search-bar input,
+.search-bar select{
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    background:#0d1117;
+    color:white;
+}
+
+.search-btn{
+    border:none;
+    background:#f5b841;
+    color:black;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.search-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* SECTION */
+
+section{
+    padding:0 60px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:35px;
+}
+
+.section-title span{
+    color:#f5b841;
+}
+
+/* CATEGORIES */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:60px;
+}
+
+.category-card{
+    background:#161b22;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    transition:.4s;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(245,184,65,.25);
+}
+
+.category-card h3{
+    color:#f5b841;
+    margin-bottom:10px;
+}
+
+/* MAIN */
+
+.main{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:25px;
+    padding:0 60px 70px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    background:#161b22;
+    padding:20px;
+    border-radius:12px;
+    height:fit-content;
+}
+
+.sidebar h2{
+    margin-bottom:20px;
+}
+
+.sidebar input,
+.sidebar select{
+    width:100%;
+    margin-bottom:15px;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:#0d1117;
+    color:white;
+}
+
+.price-box{
+    margin:20px 0;
+}
+
+.price-box h3{
+    margin-bottom:10px;
+    font-size:16px;
+}
+
+.price-box input{
+    width:100%;
+}
+
+.price-text{
+    color:#f5b841;
+    font-size:14px;
+}
+
+.filter-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:#f5b841;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* PROPERTIES */
+
+.properties{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:22px;
+}
+
+.card{
+    background:#161b22;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 35px rgba(245,184,65,.18);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.card:hover img{
+    transform:scale(1.12);
+}
+
+.card-content{
+    padding:18px;
+}
+
+.tag{
+    display:inline-block;
+    background:#f5b841;
+    color:black;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#f5b841;
+    font-size:24px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.location{
+    color:#aaa;
+}
+
+.info{
+    margin-top:10px;
+    color:#ccc;
+    font-size:14px;
+}
+
+/* PAGINATION */
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:50px 0;
+}
+
+.pagination button{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:6px;
+    background:#161b22;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.pagination button:hover{
+    background:#f5b841;
+    color:black;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    margin:0 60px 60px;
+    background:#161b22;
+    border-radius:12px;
+    padding:40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.newsletter h2{
+    margin-bottom:10px;
+}
+
+.newsletter p{
+    color:#aaa;
+}
+
+.newsletter input{
+    width:300px;
+    padding:14px;
+    border:none;
+    border-radius:6px;
+}
+
+.newsletter button{
+    padding:14px 24px;
+    border:none;
+    border-radius:6px;
+    background:#f5b841;
+    margin-left:10px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#161b22;
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:900px){
+
+.search-bar{
+    grid-template-columns:1fr;
+}
+
+.main{
+    grid-template-columns:1fr;
+}
+
+.newsletter{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+}
+
+nav{
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:40px;
+}
+
+}
+
+</style>
+<link rel="stylesheet" href="assets/site-extra.css">
+</head>
+
+<body>
+
+<nav>
+<h2><a href="home.html" class="brand-link">UrbanNest</a></h2>
+
+<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul id="navMenu">
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<section class="commercial-hero">
+
+<div class="hero-content">
+<h1>Premium <span>Commercial</span> Spaces</h1>
+<p>
+Discover offices, corporate towers, retail shops and warehouses
+for your growing business.
+</p>
+
+<a href="#" class="hero-btn">Explore Properties</a>
+
+</div>
+
+</section>
+
+<div class="search-bar">
+
+<input type="text" placeholder="Location">
+
+<select>
+<option>Property Type</option>
+<option>Office</option>
+<option>Retail Store</option>
+<option>Warehouse</option>
+<option>Corporate Tower</option>
+</select>
+
+<select>
+<option>Price Range</option>
+<option>$5,000 - $10,000</option>
+<option>$10,000 - $20,000</option>
+<option>$20,000+</option>
+</select>
+
+<select>
+<option>Area Size</option>
+<option>1000 sqft</option>
+<option>3000 sqft</option>
+<option>5000 sqft+</option>
+</select>
+
+<button class="search-btn">Search</button>
+
+</div>
+
+<section>
+
+<h2 class="section-title">
+Commercial <span>Categories</span>
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+<h3>Office Spaces</h3>
+<p>Modern workspaces for businesses.</p>
+</div>
+
+<div class="category-card">
+<h3>Retail Stores</h3>
+<p>Prime locations for retail success.</p>
+</div>
+
+<div class="category-card">
+<h3>Warehouses</h3>
+<p>Large industrial and storage facilities.</p>
+</div>
+
+<div class="category-card">
+<h3>Corporate Towers</h3>
+<p>Premium business headquarters.</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="main">
+
+<div class="sidebar">
+
+<h2>Filter Properties</h2>
+
+<input type="text" placeholder="City">
+
+<select>
+<option>Property Type</option>
+<option>Office</option>
+<option>Retail</option>
+<option>Warehouse</option>
+</select>
+
+<select>
+<option>Floor Area</option>
+<option>1000 sqft</option>
+<option>3000 sqft</option>
+<option>5000 sqft</option>
+</select>
+
+<div class="price-box">
+<h3>Price Range</h3>
+<input type="range">
+<p class="price-text">$5,000 - $50,000</p>
+</div>
+
+<button class="filter-btn">
+Apply Filters
+</button>
+
+</div>
+
+<div>
+
+<div class="properties">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72" alt="Sky Tower Offices">
+<div class="card-content">
+<span class="tag">Office</span>
+<h3>Sky Tower Offices</h3>
+<p class="price">$12,000/mo</p>
+<p class="location">Downtown Business District</p>
+<p class="info">5000 sqft • Parking • Conference Rooms</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1497366754035-f200968a6e72&name=Sky%20Tower%20Offices&price=%2412%2C000/mo&location=Downtown%20Business%20District&tag=Office&info=5000%20sqft%20%E2%80%A2%20Parking%20%E2%80%A2%20Conference%20Rooms" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7" alt="Prime Business Hub">
+<div class="card-content">
+<span class="tag">Corporate</span>
+<h3>Prime Business Hub</h3>
+<p class="price">$18,500/mo</p>
+<p class="location">New York Financial Center</p>
+<p class="info">6500 sqft • Reception • Security</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1497366412874-3415097a27e7&name=Prime%20Business%20Hub&price=%2418%2C500/mo&location=New%20York%20Financial%20Center&tag=Corporate&info=6500%20sqft%20%E2%80%A2%20Reception%20%E2%80%A2%20Security" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1460317442991-0ec209397118" alt="City Retail Plaza">
+<div class="card-content">
+<span class="tag">Retail</span>
+<h3>City Retail Plaza</h3>
+<p class="price">$8,900/mo</p>
+<p class="location">Central Shopping District</p>
+<p class="info">2800 sqft • Corner Store • High Traffic</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1460317442991-0ec209397118&name=City%20Retail%20Plaza&price=%248%2C900/mo&location=Central%20Shopping%20District&tag=Retail&info=2800%20sqft%20%E2%80%A2%20Corner%20Store%20%E2%80%A2%20High%20Traffic" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2" alt="Industrial Warehouse">
+<div class="card-content">
+<span class="tag">Warehouse</span>
+<h3>Industrial Warehouse</h3>
+<p class="price">$14,000/mo</p>
+<p class="location">Logistics Zone</p>
+<p class="info">9000 sqft • Loading Bays • Storage</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1511818966892-d7d671e672a2&name=Industrial%20Warehouse&price=%2414%2C000/mo&location=Logistics%20Zone&tag=Warehouse&info=9000%20sqft%20%E2%80%A2%20Loading%20Bays%20%E2%80%A2%20Storage" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" alt="Global Trade Tower">
+<div class="card-content">
+<span class="tag">Corporate</span>
+<h3>Global Trade Tower</h3>
+<p class="price">$25,000/mo</p>
+<p class="location">Business Avenue</p>
+<p class="info">12000 sqft • Premium Floors • Security</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1486406146926-c627a92ad1ab&name=Global%20Trade%20Tower&price=%2425%2C000/mo&location=Business%20Avenue&tag=Corporate&info=12000%20sqft%20%E2%80%A2%20Premium%20Floors%20%E2%80%A2%20Security" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1484154218962-a197022b5858" alt="Innovation Center">
+<div class="card-content">
+<span class="tag">Office</span>
+<h3>Innovation Center</h3>
+<p class="price">$10,500/mo</p>
+<p class="location">Technology Park</p>
+<p class="info">4200 sqft • Meeting Rooms • Cafeteria</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1484154218962-a197022b5858&name=Innovation%20Center&price=%2410%2C500/mo&location=Technology%20Park&tag=Office&info=4200%20sqft%20%E2%80%A2%20Meeting%20Rooms%20%E2%80%A2%20Cafeteria" class="view-btn">View Details</a>
+</div>
+</div>
+
+</div>
+
+<div class="pagination">
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button>></button>
+</div>
+
+</div>
+
+</div>
+
+<div class="newsletter">
+
+<div>
+<h2>Subscribe to our Newsletter</h2>
+<p>Get the latest commercial property opportunities.</p>
+</div>
+
+<div>
+<input type="email" placeholder="Enter your email">
+<button>Subscribe</button>
+</div>
+
+</div>
+
+<footer class="site-footer">
+<div class="footer-grid">
+<div>
+<h3>UrbanNest</h3>
+<p>Your trusted real estate partner for buying, selling, renting and leasing premium residential &amp; commercial properties.</p>
+<div class="social-icons">
+<a href="#" aria-label="Facebook">📘</a>
+<a href="#" aria-label="Instagram">📷</a>
+<a href="#" aria-label="LinkedIn">💼</a>
+<a href="#" aria-label="Twitter">🐦</a>
+</div>
+</div>
+<div>
+<h3>Quick Links</h3>
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+</ul>
+</div>
+<div>
+<h3>Company</h3>
+<ul>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="login.html">Login / Sign Up</a></li>
+</ul>
+</div>
+<div>
+<h3>Contact</h3>
+<p>contact@urbannest.com<br>+1 (650) 555-2026<br>Silicon Valley, CA</p>
+</div>
+</div>
+<div class="copyright">© 2026 UrbanNest Commercial Real Estate | All Rights Reserved</div>
+</footer>
+
+<script src="assets/site-extra.js"></script>
+</body>
+</html>

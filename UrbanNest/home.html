@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="UrbanNest — find your perfect home. Browse verified properties to buy, rent, or lease commercial spaces with ease.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="UrbanNest - Real Estate">
+<meta property="og:description" content="UrbanNest — find your perfect home. Browse verified properties to buy, rent, or lease commercial spaces with ease.">
+<meta property="og:type" content="website">
+<title>UrbanNest</title>
+
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body{
+    background:#0d1117;
+    color:#fff;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    position:fixed;
+    width:100%;
+    z-index:100;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+}
+
+nav h2{
+    color:#f5b841;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li{
+    list-style:none;
+}
+
+/* EXISTING CODE CONTINUES */
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#f5b841;
+}
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#f5b841;
+}
+
+/* HERO SECTION */
+.hero{
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center/cover;
+    display:flex;
+    align-items:center;
+    padding:0 60px;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    top:0;
+    left:0;
+}
+
+.hero-content{
+    position:relative;
+    max-width:600px;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#f5b841;
+}
+
+.hero p{
+    margin-bottom:30px;
+    color:#ccc;
+}
+
+.btn{
+    padding:12px 25px;
+    border:none;
+    margin-right:10px;
+    cursor:pointer;
+    border-radius:5px;
+    transition:0.3s;
+    display:inline-block;
+    text-decoration:none;
+}
+
+.btn-primary{
+    background:#f5b841;
+    color:#000;
+}
+
+.btn-primary:hover{
+    background:#fff;
+}
+
+.btn-dark{
+    background:transparent;
+    border:1px solid #fff;
+    color:#fff;
+}
+
+.btn-dark:hover{
+    background:#fff;
+    color:#000;
+}
+
+/* SEARCH BAR */
+.search-box{
+    position:absolute;
+    bottom:-40px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    border-radius:10px;
+    display:flex;
+    gap:15px;
+}
+
+.search-box input{
+    padding:10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+}
+
+/* FEATURED SECTION */
+.featured{
+    padding:120px 60px 60px;
+}
+
+.featured h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+}
+
+/* CARD */
+.card{
+    background:#161b22;
+    border-radius:10px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px rgba(245,184,65,0.5);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#f5b841;
+    margin-top:10px;
+}
+
+/* FOOTER SPACE */
+.space{
+    height:50px;
+}
+</style>
+<link rel="stylesheet" href="assets/site-extra.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2><a href="home.html" class="brand-link">UrbanNest</a></h2>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+
+    <ul id="navMenu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="buy.html">Buy</a></li>
+        <li><a href="rent.html">Rent</a></li>
+        <li><a href="commercial.html">Commercial</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Find Your Perfect <span>Urban Space</span></h1>
+        <p>Buy, sell or rent properties with ease. Your dream home is waiting.</p>
+        <a href="buy.html" class="btn btn-primary">Buy</a>
+        <a href="rent.html" class="btn btn-dark">Rent</a>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+        <input type="text" placeholder="Location">
+        <input type="text" placeholder="Property Type">
+        <input type="text" placeholder="Price">
+        <button class="btn btn-primary">Search</button>
+    </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured">
+    <h2>Featured Properties</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" alt="Modern Villa">
+            <div class="card-content">
+                <h3>Modern Villa</h3>
+                <p>Luxury house in city center</p>
+                <p class="price">$850,000</p>
+                <a href="property-detail.html?name=Modern%20Villa&price=%24850%2C000&info=Luxury%20house%20in%20city%20center&img=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1568605114967-8130f3a36994" class="view-btn">View Details</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" alt="Apartment">
+            <div class="card-content">
+                <h3>Apartment</h3>
+                <p>Beautiful urban apartment</p>
+                <p class="price">$2,200/mo</p>
+                <a href="property-detail.html?name=Apartment&price=%242%2C200%2Fmo&info=Beautiful%20urban%20apartment&img=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1572120360610-d971b9d7767c" class="view-btn">View Details</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae" alt="Family House">
+            <div class="card-content">
+                <h3>Family House</h3>
+                <p>Perfect for families</p>
+                <p class="price">$450,000</p>
+                <a href="property-detail.html?name=Family%20House&price=%24450%2C000&info=Perfect%20for%20families&img=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1507089947368-19c1da9775ae" class="view-btn">View Details</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Luxury Interior">
+            <div class="card-content">
+                <h3>Luxury Interior</h3>
+                <p>Premium design home</p>
+                <p class="price">$1,200/mo</p>
+                <a href="property-detail.html?name=Luxury%20Interior&price=%241%2C200%2Fmo&info=Premium%20design%20home&img=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1600607687939-ce8a6c25118c" class="view-btn">View Details</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="site-footer">
+<div class="footer-grid">
+<div>
+<h3>UrbanNest</h3>
+<p>Your trusted real estate partner for buying, selling, renting and leasing premium residential &amp; commercial properties.</p>
+<div class="social-icons">
+<a href="#" aria-label="Facebook">📘</a>
+<a href="#" aria-label="Instagram">📷</a>
+<a href="#" aria-label="LinkedIn">💼</a>
+<a href="#" aria-label="Twitter">🐦</a>
+</div>
+</div>
+<div>
+<h3>Quick Links</h3>
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+</ul>
+</div>
+<div>
+<h3>Company</h3>
+<ul>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="login.html">Login / Sign Up</a></li>
+</ul>
+</div>
+<div>
+<h3>Contact</h3>
+<p>contact@urbannest.com<br>+1 (650) 555-2026<br>Silicon Valley, CA</p>
+</div>
+</div>
+<div class="copyright">© 2026 UrbanNest Real Estate | All Rights Reserved</div>
+</footer>
+
+<script src="assets/site-extra.js"></script>
+</body>
+</html>

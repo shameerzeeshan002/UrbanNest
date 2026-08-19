@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UrbanNest - Page Not Found</title>
+<meta name="description" content="The page you're looking for doesn't exist. Return to UrbanNest home.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:white;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    position:fixed;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,.6);
+    backdrop-filter:blur(10px);
+}
+
+nav h2{
+    color:#f5b841;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#f5b841;
+}
+
+.error-wrap{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:0 20px;
+}
+
+.error-code{
+    font-size:130px;
+    font-weight:bold;
+    color:#f5b841;
+    line-height:1;
+}
+
+.error-wrap h1{
+    font-size:30px;
+    margin:15px 0;
+}
+
+.error-wrap p{
+    color:#aaa;
+    max-width:450px;
+    margin-bottom:30px;
+    line-height:1.7;
+}
+
+.error-btn{
+    padding:14px 30px;
+    background:#f5b841;
+    color:#000;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.error-btn:hover{
+    transform:translateY(-4px);
+}
+
+@media(max-width:600px){
+.error-code{
+    font-size:90px;
+}
+}
+
+</style>
+<link rel="stylesheet" href="assets/site-extra.css">
+</head>
+
+<body>
+
+<nav>
+<h2><a href="home.html" class="brand-link">UrbanNest</a></h2>
+<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul id="navMenu">
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<section class="error-wrap">
+<div class="error-code">404</div>
+<h1>Property Not Found</h1>
+<p>The page you're looking for has been moved, sold, or never existed. Let's get you back to browsing properties.</p>
+<a href="home.html" class="error-btn">Back To Home</a>
+</section>
+
+<script src="assets/site-extra.js"></script>
+</body>
+</html>

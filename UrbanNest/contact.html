@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Get in touch with UrbanNest. Call, email or visit us — our team is ready to help with your real estate needs.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="UrbanNest - Real Estate">
+<meta property="og:description" content="Get in touch with UrbanNest. Call, email or visit us — our team is ready to help with your real estate needs.">
+<meta property="og:type" content="website">
+<title>UrbanNest - Contact Us</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    position:fixed;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,.6);
+    backdrop-filter:blur(10px);
+}
+
+nav h2{
+    color:#f5b841;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#f5b841;
+}
+
+/* HERO */
+
+.contact-hero{
+    height:80vh;
+    padding:120px 60px 60px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:40px;
+}
+
+.hero-text h1{
+    font-size:70px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text span{
+    color:#f5b841;
+}
+
+.hero-text p{
+    color:#ccc;
+    line-height:1.8;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:14px 30px;
+    background:#f5b841;
+    color:black;
+    text-decoration:none;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    transform:translateY(-5px);
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:15px;
+}
+
+/* CONTACT CARDS */
+
+.contact-cards{
+    padding:20px 60px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#161b22;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(245,184,65,.3);
+}
+
+.card h3{
+    color:#f5b841;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#ccc;
+    line-height:1.7;
+}
+
+/* CONTACT SECTION */
+
+.contact-section{
+    padding:60px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.form-box,
+.map-box{
+    background:#161b22;
+    padding:30px;
+    border-radius:12px;
+}
+
+.form-box h2,
+.map-box h2{
+    margin-bottom:25px;
+}
+
+.form-box h2 span,
+.map-box h2 span{
+    color:#f5b841;
+}
+
+.form-box input,
+.form-box textarea{
+    width:100%;
+    margin-bottom:15px;
+    padding:14px;
+    background:#0d1117;
+    border:none;
+    border-radius:8px;
+    color:white;
+}
+
+.form-box textarea{
+    height:160px;
+    resize:none;
+}
+
+.send-btn{
+    background:#f5b841;
+    border:none;
+    padding:14px 30px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.send-btn:hover{
+    transform:translateY(-4px);
+}
+
+/* CTA */
+
+.cta{
+    margin:40px 60px;
+    background:#161b22;
+    padding:40px;
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cta h2{
+    font-size:40px;
+}
+
+.cta span{
+    color:#f5b841;
+}
+
+.cta-btn{
+    background:#f5b841;
+    color:black;
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:8px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#161b22;
+    padding:40px 60px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+footer h3{
+    color:#f5b841;
+    margin-bottom:15px;
+}
+
+footer p,
+footer li{
+    color:#aaa;
+    line-height:1.8;
+    list-style:none;
+}
+
+footer ul li a{
+    color:#aaa;
+    text-decoration:none;
+    transition:.3s;
+}
+
+footer ul li a:hover{
+    color:#f5b841;
+}
+
+.copyright{
+    text-align:center;
+    margin-top:30px;
+    color:#666;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.contact-hero,
+.contact-section{
+    grid-template-columns:1fr;
+}
+
+.contact-cards{
+    grid-template-columns:1fr 1fr;
+}
+
+.cta{
+    flex-direction:column;
+    gap:20px;
+}
+
+.footer-grid{
+    grid-template-columns:1fr;
+}
+
+.hero-text h1{
+    font-size:50px;
+}
+
+}
+
+</style>
+<link rel="stylesheet" href="assets/site-extra.css">
+</head>
+
+<body>
+
+<nav>
+
+<h2><a href="home.html" class="brand-link">UrbanNest</a></h2>
+
+<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul id="navMenu">
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="contact-hero">
+
+<div class="hero-text">
+
+<h1>
+We'd Love To Hear From <span>You</span>
+</h1>
+
+<p>
+Have questions about properties, rentals or investments?
+Our team is ready to assist you with all your real estate needs.
+</p>
+
+<a href="#contactform" class="hero-btn">
+Get In Touch
+</a>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="UrbanNest property photo">
+
+</div>
+
+</section>
+
+<section class="contact-cards">
+
+<div class="card">
+<h3>📞 Call Us</h3>
+<p>
++1 (650) 555-2026
+</p>
+</div>
+
+<div class="card">
+<h3>✉ Email Us</h3>
+<p>
+contact@urbannest.com
+</p>
+</div>
+
+<div class="card">
+<h3>📍 Visit Us</h3>
+<p>
+Silicon Valley<br>
+San Francisco Bay Area
+</p>
+</div>
+
+<div class="card">
+<h3>🕒 Working Hours</h3>
+<p>
+Mon-Fri: 9AM - 6PM
+</p>
+</div>
+
+</section>
+
+<section class="contact-section" id="contactform">
+
+<div class="form-box">
+
+<h2>Send Us A <span>Message</span></h2>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<input type="text" placeholder="Phone Number">
+
+<input type="text" placeholder="Subject">
+
+<textarea placeholder="Your Message"></textarea>
+
+<button class="send-btn">
+Send Message
+</button>
+
+</div>
+
+<div class="map-box">
+
+<h2>Our <span>Location</span></h2>
+
+<iframe
+src="https://maps.google.com/maps?q=Silicon%20Valley%20California&t=&z=11&ie=UTF8&iwloc=&output=embed"
+width="100%"
+height="350"
+style="border:0;border-radius:12px;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+<br><br>
+
+<p>
+<b>UrbanNest Headquarters</b><br>
+Silicon Valley<br>
+San Francisco Bay Area<br>
+California, USA
+</p>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<div>
+<h2>
+Let's Find Your <span>Perfect Property</span>
+</h2>
+</div>
+
+<a href="buy.html" class="cta-btn">
+Explore Properties
+</a>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h3>UrbanNest</h3>
+<p>
+Your trusted real estate partner for buying,
+selling and renting premium properties.
+</p>
+<div class="social-icons">
+<a href="#" aria-label="Facebook">📘</a>
+<a href="#" aria-label="Instagram">📷</a>
+<a href="#" aria-label="LinkedIn">💼</a>
+<a href="#" aria-label="Twitter">🐦</a>
+</div>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="about.html">About</a></li>
+</ul>
+</div>
+
+<div>
+<h3>Contact</h3>
+<p>
+contact@urbannest.com<br>
++1 (650) 555-2026<br>
+Silicon Valley, CA
+</p>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 UrbanNest Real Estate | All Rights Reserved
+</div>
+
+</footer>
+
+<script src="assets/site-extra.js"></script>
+</body>
+</html>

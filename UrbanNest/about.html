@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Learn about UrbanNest — our mission, vision, team and values as a trusted modern real estate platform.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="UrbanNest - Real Estate">
+<meta property="og:description" content="Learn about UrbanNest — our mission, vision, team and values as a trusted modern real estate platform.">
+<meta property="og:type" content="website">
+<title>UrbanNest - About Us</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    position:fixed;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(10px);
+}
+
+nav h2{
+    color:#f5b841;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#f5b841;
+}
+
+/* HERO */
+
+.about-hero{
+    height:70vh;
+    background:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2') center/cover;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:0 60px;
+}
+
+.about-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.75);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+}
+
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero-content span{
+    color:#f5b841;
+}
+
+.hero-content p{
+    color:#ccc;
+    font-size:18px;
+    line-height:1.7;
+}
+
+/* GENERAL */
+
+section{
+    padding:80px 60px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:40px;
+}
+
+.section-title span{
+    color:#f5b841;
+}
+
+/* MISSION */
+
+.mission-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.box{
+    background:#161b22;
+    padding:30px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(245,184,65,.3);
+}
+
+.box h3{
+    color:#f5b841;
+    margin-bottom:15px;
+}
+
+.box p{
+    color:#ccc;
+    line-height:1.8;
+}
+
+/* TEAM */
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.team-card{
+    background:#161b22;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    transition:.3s;
+}
+
+.team-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(245,184,65,.3);
+}
+
+.avatar{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:#0d1117;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:55px;
+    margin:auto;
+    margin-bottom:20px;
+}
+
+.role{
+    color:#f5b841;
+    margin:10px 0;
+    font-weight:bold;
+}
+
+.ga{
+    color:#aaa;
+}
+
+/* VALUES */
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.value-card{
+    background:#161b22;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    transition:.3s;
+}
+
+.value-card:hover{
+    transform:translateY(-8px);
+}
+
+.value-card h3{
+    color:#f5b841;
+    margin-bottom:10px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat{
+    background:#161b22;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.stat h2{
+    color:#f5b841;
+    font-size:40px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    margin:60px;
+    background:#161b22;
+    border-radius:12px;
+    padding:40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.newsletter h2{
+    margin-bottom:10px;
+}
+
+.newsletter p{
+    color:#aaa;
+}
+
+.newsletter input{
+    width:300px;
+    padding:14px;
+    border:none;
+    border-radius:6px;
+}
+
+.newsletter button{
+    padding:14px 25px;
+    border:none;
+    background:#f5b841;
+    border-radius:6px;
+    margin-left:10px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#161b22;
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
+@media(max-width:900px){
+
+.stats{
+    grid-template-columns:1fr 1fr;
+}
+
+.mission-grid{
+    grid-template-columns:1fr;
+}
+
+.newsletter{
+    flex-direction:column;
+    gap:20px;
+}
+
+}
+
+</style>
+<link rel="stylesheet" href="assets/site-extra.css">
+</head>
+
+<body>
+
+<nav>
+
+<h2><a href="home.html" class="brand-link">UrbanNest</a></h2>
+
+<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul id="navMenu">
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="about-hero">
+
+<div class="hero-content">
+
+<h1>Building Better Spaces <span>For Better Living</span></h1>
+
+<p>
+UrbanNest is a modern real estate platform dedicated to helping
+people discover homes, rental properties, and commercial spaces.
+Our goal is to create a seamless and trusted property experience.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+UrbanNest <span>Statistics</span>
+</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h2>500+</h2>
+<p>Properties Listed</p>
+</div>
+
+<div class="stat">
+<h2>200+</h2>
+<p>Happy Clients</p>
+</div>
+
+<div class="stat">
+<h2>50+</h2>
+<p>Cities Covered</p>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<p>Client Satisfaction</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Mission & <span>Vision</span>
+</h2>
+
+<div class="mission-grid">
+
+<div class="box">
+<h3>Our Mission</h3>
+<p>
+To simplify buying, renting, and exploring properties through
+modern technology and user-friendly experiences.
+</p>
+</div>
+
+<div class="box">
+<h3>Our Vision</h3>
+<p>
+To become the most trusted real estate platform that connects
+people with their dream properties.
+</p>
+</div>
+
+</div>
+
+</section>
+</section>
+
+<section>
+
+<h2 class="section-title">
+Our <span>Values</span>
+</h2>
+
+<div class="values-grid">
+
+<div class="value-card">
+<h3>Integrity</h3>
+<p>Honesty and transparency in every interaction.</p>
+</div>
+
+<div class="value-card">
+<h3>Innovation</h3>
+<p>Modern solutions for modern property needs.</p>
+</div>
+
+<div class="value-card">
+<h3>Commitment</h3>
+<p>Dedicated to helping clients find the perfect space.</p>
+</div>
+
+<div class="value-card">
+<h3>Excellence</h3>
+<p>Delivering high-quality experiences and services.</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="newsletter">
+
+<div>
+<h2>Subscribe To Our Newsletter</h2>
+<p>Get the latest property updates and news.</p>
+</div>
+
+<div>
+<input type="email" placeholder="Enter your email">
+<button>Subscribe</button>
+</div>
+
+</div>
+
+<footer class="site-footer">
+<div class="footer-grid">
+<div>
+<h3>UrbanNest</h3>
+<p>Your trusted real estate partner for buying, selling, renting and leasing premium residential &amp; commercial properties.</p>
+<div class="social-icons">
+<a href="#" aria-label="Facebook">📘</a>
+<a href="#" aria-label="Instagram">📷</a>
+<a href="#" aria-label="LinkedIn">💼</a>
+<a href="#" aria-label="Twitter">🐦</a>
+</div>
+</div>
+<div>
+<h3>Quick Links</h3>
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+</ul>
+</div>
+<div>
+<h3>Company</h3>
+<ul>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="login.html">Login / Sign Up</a></li>
+</ul>
+</div>
+<div>
+<h3>Contact</h3>
+<p>contact@urbannest.com<br>+1 (650) 555-2026<br>Silicon Valley, CA</p>
+</div>
+</div>
+<div class="copyright">© 2026 UrbanNest Real Estate | All Rights Reserved</div>
+</footer>
+
+<script src="assets/site-extra.js"></script>
+</body>
+</html>

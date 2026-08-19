@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Find flexible, verified rental homes and apartments with UrbanNest. Fast approval, 24/7 support.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="UrbanNest - Real Estate">
+<meta property="og:description" content="Find flexible, verified rental homes and apartments with UrbanNest. Fast approval, 24/7 support.">
+<meta property="og:type" content="website">
+<title>UrbanNest - Rent Properties</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    position:fixed;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(10px);
+}
+
+nav h2{
+    color:#f5b841;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#f5b841;
+}
+
+/* HERO */
+
+.rent-hero{
+    height:70vh;
+    background:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750') center/cover;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:0 60px;
+}
+
+.rent-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.7);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:600px;
+}
+
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero-content span{
+    color:#f5b841;
+}
+
+.hero-content p{
+    color:#ccc;
+    margin-bottom:25px;
+    font-size:18px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#f5b841;
+    color:black;
+    text-decoration:none;
+    border-radius:6px;
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* SEARCH BAR */
+
+.search-bar{
+    width:90%;
+    margin:-40px auto 50px;
+    background:#161b22;
+    padding:20px;
+    border-radius:12px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr) auto;
+    gap:15px;
+    position:relative;
+    z-index:10;
+}
+
+.search-bar input,
+.search-bar select{
+    padding:14px;
+    border:none;
+    border-radius:6px;
+    background:#0d1117;
+    color:white;
+}
+
+.search-btn{
+    border:none;
+    background:#f5b841;
+    color:black;
+    padding:14px 25px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* SECTION */
+
+section{
+    padding:30px 60px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:32px;
+}
+
+.section-title span{
+    color:#f5b841;
+}
+
+/* CATEGORIES */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.category-card{
+    background:#161b22;
+    padding:30px;
+    text-align:center;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(245,184,65,.3);
+}
+
+.category-card h3{
+    color:#f5b841;
+    margin-bottom:10px;
+}
+
+/* RENTAL CARDS */
+
+.properties{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#161b22;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(245,184,65,.3);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.tag{
+    display:inline-block;
+    background:#f5b841;
+    color:black;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.price{
+    color:#f5b841;
+    font-size:24px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+/* BENEFITS */
+
+.benefit-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.benefit{
+    background:#161b22;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.benefit h3{
+    color:#f5b841;
+    margin-bottom:10px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    margin:50px 60px;
+    background:#161b22;
+    padding:40px;
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.newsletter input{
+    width:300px;
+    padding:14px;
+    border:none;
+    border-radius:6px;
+}
+
+.newsletter button{
+    padding:14px 25px;
+    border:none;
+    background:#f5b841;
+    border-radius:6px;
+    margin-left:10px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#161b22;
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
+</style>
+<link rel="stylesheet" href="assets/site-extra.css">
+</head>
+
+<body>
+
+<nav>
+<h2><a href="home.html" class="brand-link">UrbanNest</a></h2>
+
+<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul id="navMenu">
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<section class="rent-hero">
+<div class="hero-content">
+<h1>Find Your Perfect <span>Rental Home</span></h1>
+<p>Flexible leases. Verified properties. Homes that fit your lifestyle.</p>
+<a href="#" class="hero-btn">Browse Rentals</a>
+</div>
+</section>
+
+<div class="search-bar">
+<input type="text" placeholder="Location">
+
+<select>
+<option>Budget</option>
+<option>$500-$1000</option>
+<option>$1000-$2000</option>
+<option>$2000+</option>
+</select>
+
+<select>
+<option>Bedrooms</option>
+<option>1 Bed</option>
+<option>2 Beds</option>
+<option>3 Beds</option>
+</select>
+
+<button class="search-btn">Search Rentals</button>
+</div>
+
+<section>
+
+<h2 class="section-title">
+Popular <span>Rental Types</span>
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+<h3>Apartments</h3>
+<p>Modern city living.</p>
+</div>
+
+<div class="category-card">
+<h3>Studios</h3>
+<p>Compact & affordable.</p>
+</div>
+
+<div class="category-card">
+<h3>Family Homes</h3>
+<p>Spacious and comfortable.</p>
+</div>
+
+<div class="category-card">
+<h3>Luxury Rentals</h3>
+<p>Premium lifestyle options.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Featured <span>Rentals</span>
+</h2>
+
+<div class="properties">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" alt="Modern Apartment">
+<div class="card-content">
+<span class="tag">For Rent</span>
+<h3>Modern Apartment</h3>
+<p class="price">$2200/mo</p>
+<p>Los Angeles, CA</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1572120360610-d971b9d7767c&name=Modern%20Apartment&price=%242200/mo&location=&tag=For%20Rent&info=" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Cozy Studio">
+<div class="card-content">
+<span class="tag">For Rent</span>
+<h3>Cozy Studio</h3>
+<p class="price">$1800/mo</p>
+<p>New York, NY</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1600607687939-ce8a6c25118c&name=Cozy%20Studio&price=%241800/mo&location=&tag=For%20Rent&info=" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="Luxury Villa">
+<div class="card-content">
+<span class="tag">For Rent</span>
+<h3>Luxury Villa</h3>
+<p class="price">$3200/mo</p>
+<p>Miami, FL</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1512917774080-9991f1c4c750&name=Luxury%20Villa&price=%243200/mo&location=&tag=For%20Rent&info=" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156" alt="Premium Apartment">
+<div class="card-content">
+<span class="tag">For Rent</span>
+<h3>Premium Apartment</h3>
+<p class="price">$2500/mo</p>
+<p>Chicago, IL</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1494526585095-c41746248156&name=Premium%20Apartment&price=%242500/mo&location=&tag=For%20Rent&info=" class="view-btn">View Details</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Why Rent With <span>UrbanNest?</span>
+</h2>
+
+<div class="benefit-grid">
+
+<div class="benefit">
+<h3>Verified Listings</h3>
+<p>All rental properties are verified.</p>
+</div>
+
+<div class="benefit">
+<h3>Flexible Lease</h3>
+<p>Choose a lease that fits your needs.</p>
+</div>
+
+<div class="benefit">
+<h3>Fast Approval</h3>
+<p>Quick and easy rental process.</p>
+</div>
+
+<div class="benefit">
+<h3>24/7 Support</h3>
+<p>We're always here to help.</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="newsletter">
+
+<div>
+<h2>Subscribe to our Newsletter</h2>
+<p>Get latest rental listings and updates.</p>
+</div>
+
+<div>
+<input type="email" placeholder="Enter your email">
+<button>Subscribe</button>
+</div>
+
+</div>
+
+<footer class="site-footer">
+<div class="footer-grid">
+<div>
+<h3>UrbanNest</h3>
+<p>Your trusted real estate partner for buying, selling, renting and leasing premium residential &amp; commercial properties.</p>
+<div class="social-icons">
+<a href="#" aria-label="Facebook">📘</a>
+<a href="#" aria-label="Instagram">📷</a>
+<a href="#" aria-label="LinkedIn">💼</a>
+<a href="#" aria-label="Twitter">🐦</a>
+</div>
+</div>
+<div>
+<h3>Quick Links</h3>
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+</ul>
+</div>
+<div>
+<h3>Company</h3>
+<ul>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="login.html">Login / Sign Up</a></li>
+</ul>
+</div>
+<div>
+<h3>Contact</h3>
+<p>contact@urbannest.com<br>+1 (650) 555-2026<br>Silicon Valley, CA</p>
+</div>
+</div>
+<div class="copyright">© 2026 UrbanNest Real Estate | All Rights Reserved</div>
+</footer>
+
+<script src="assets/site-extra.js"></script>
+</body>
+</html>

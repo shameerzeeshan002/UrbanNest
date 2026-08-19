@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Buy your dream property with UrbanNest. Browse verified villas, apartments and houses in top locations.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="UrbanNest - Real Estate">
+<meta property="og:description" content="Buy your dream property with UrbanNest. Browse verified villas, apartments and houses in top locations.">
+<meta property="og:type" content="website">
+<title>UrbanNest - Buy Properties</title>
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    position:fixed;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(10px);
+}
+
+nav h2{
+    color:#f5b841;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#f5b841;
+}
+
+/* HERO */
+
+.buy-hero{
+    height:60vh;
+    background:url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c")
+    center/cover;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:0 60px;
+}
+
+.buy-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.7);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.hero-content span{
+    color:#f5b841;
+}
+
+.hero-content p{
+    color:#ccc;
+    font-size:18px;
+}
+
+/* SEARCH BAR */
+
+.search-bar{
+    width:92%;
+    margin:-35px auto 40px;
+    background:#161b22;
+    border-radius:12px;
+    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr) auto;
+    gap:15px;
+    position:relative;
+    z-index:10;
+}
+
+.search-bar input,
+.search-bar select{
+    padding:14px;
+    border:none;
+    border-radius:6px;
+    background:#0d1117;
+    color:white;
+}
+
+.search-btn{
+    border:none;
+    background:#f5b841;
+    padding:14px 25px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.search-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* MAIN */
+
+.main{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:25px;
+    padding:20px 50px 80px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    background:#161b22;
+    padding:20px;
+    border-radius:12px;
+}
+
+.sidebar h2{
+    margin-bottom:20px;
+}
+
+.sidebar input,
+.sidebar select{
+    width:100%;
+    margin-bottom:15px;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:#0d1117;
+    color:white;
+}
+
+.filter-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#f5b841;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* PROPERTY GRID */
+
+.properties{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#161b22;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(245,184,65,.3);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.tag{
+    display:inline-block;
+    background:#f5b841;
+    color:black;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.price{
+    color:#f5b841;
+    font-size:24px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.location{
+    color:#aaa;
+}
+
+.info{
+    color:#ccc;
+    margin-top:10px;
+    font-size:14px;
+}
+
+/* PAGINATION */
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:40px;
+}
+
+.pagination button{
+    width:45px;
+    height:45px;
+    border:none;
+    background:#161b22;
+    color:white;
+    cursor:pointer;
+    border-radius:6px;
+}
+
+.pagination button:hover{
+    background:#f5b841;
+    color:black;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    margin:80px 50px;
+    background:#161b22;
+    border-radius:12px;
+    padding:40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.newsletter h2{
+    margin-bottom:10px;
+}
+
+.newsletter p{
+    color:#aaa;
+}
+
+.newsletter input{
+    width:300px;
+    padding:14px;
+    border:none;
+    border-radius:6px;
+}
+
+.newsletter button{
+    padding:14px 25px;
+    border:none;
+    background:#f5b841;
+    border-radius:6px;
+    margin-left:10px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#161b22;
+    color:#aaa;
+}
+
+</style>
+<link rel="stylesheet" href="assets/site-extra.css">
+</head>
+
+<body>
+
+<nav>
+<h2><a href="home.html" class="brand-link">UrbanNest</a></h2>
+
+<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul id="navMenu">
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<section class="buy-hero">
+<div class="hero-content">
+<h1>Buy <span>Properties</span></h1>
+<p>Find your dream property from the best locations.</p>
+</div>
+</section>
+
+<div class="search-bar">
+<input type="text" placeholder="Location">
+<select>
+<option>Property Type</option>
+<option>Apartment</option>
+<option>Villa</option>
+<option>House</option>
+</select>
+
+<select>
+<option>Price Range</option>
+<option>$100k-$500k</option>
+<option>$500k-$1M</option>
+<option>$1M+</option>
+</select>
+
+<select>
+<option>Bedrooms</option>
+<option>1</option>
+<option>2</option>
+<option>3+</option>
+</select>
+
+<button class="search-btn">Search</button>
+</div>
+
+<div class="main">
+
+<div class="sidebar">
+
+<h2>Filter Properties</h2>
+
+<input type="text" placeholder="Location">
+
+<select>
+<option>Property Type</option>
+<option>Villa</option>
+<option>Apartment</option>
+</select>
+
+<select>
+<option>Bedrooms</option>
+<option>1 Bedroom</option>
+<option>2 Bedrooms</option>
+<option>3 Bedrooms</option>
+</select>
+
+<select>
+<option>Bathrooms</option>
+<option>1 Bath</option>
+<option>2 Baths</option>
+</select>
+
+<button class="filter-btn">
+Apply Filters
+</button>
+
+</div>
+
+<div>
+
+<div class="properties">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" alt="Modern Villa">
+<div class="card-content">
+<span class="tag">For Sale</span>
+<h3>Modern Villa</h3>
+<p class="price">$850,000</p>
+<p class="location">Los Angeles, CA</p>
+<p class="info">4 Beds • 3 Baths • 2500 sqft</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1568605114967-8130f3a36994&name=Modern%20Villa&price=%24850%2C000&location=Los%20Angeles%2C%20CA&tag=For%20Sale&info=4%20Beds%20%E2%80%A2%203%20Baths%20%E2%80%A2%202500%20sqft" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Luxury House">
+<div class="card-content">
+<span class="tag">For Sale</span>
+<h3>Luxury House</h3>
+<p class="price">$1,250,000</p>
+<p class="location">Miami, FL</p>
+<p class="info">5 Beds • 4 Baths • 3200 sqft</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1600607687939-ce8a6c25118c&name=Luxury%20House&price=%241%2C250%2C000&location=Miami%2C%20FL&tag=For%20Sale&info=5%20Beds%20%E2%80%A2%204%20Baths%20%E2%80%A2%203200%20sqft" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" alt="Urban Apartment">
+<div class="card-content">
+<span class="tag">For Sale</span>
+<h3>Urban Apartment</h3>
+<p class="price">$650,000</p>
+<p class="location">Chicago, IL</p>
+<p class="info">2 Beds • 2 Baths • 1100 sqft</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1572120360610-d971b9d7767c&name=Urban%20Apartment&price=%24650%2C000&location=Chicago%2C%20IL&tag=For%20Sale&info=2%20Beds%20%E2%80%A2%202%20Baths%20%E2%80%A2%201100%20sqft" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="Family Home">
+<div class="card-content">
+<span class="tag">For Sale</span>
+<h3>Family Home</h3>
+<p class="price">$720,000</p>
+<p class="location">Austin, TX</p>
+<p class="info">3 Beds • 2 Baths • 1800 sqft</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1505693416388-ac5ce068fe85&name=Family%20Home&price=%24720%2C000&location=Austin%2C%20TX&tag=For%20Sale&info=3%20Beds%20%E2%80%A2%202%20Baths%20%E2%80%A2%201800%20sqft" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156" alt="Luxury Residence">
+<div class="card-content">
+<span class="tag">For Sale</span>
+<h3>Luxury Residence</h3>
+<p class="price">$1,800,000</p>
+<p class="location">New York, NY</p>
+<p class="info">5 Beds • 5 Baths • 4100 sqft</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1494526585095-c41746248156&name=Luxury%20Residence&price=%241%2C800%2C000&location=New%20York%2C%20NY&tag=For%20Sale&info=5%20Beds%20%E2%80%A2%205%20Baths%20%E2%80%A2%204100%20sqft" class="view-btn">View Details</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="Premium Villa">
+<div class="card-content">
+<span class="tag">For Sale</span>
+<h3>Premium Villa</h3>
+<p class="price">$1,450,000</p>
+<p class="location">San Diego, CA</p>
+<p class="info">4 Beds • 4 Baths • 3000 sqft</p>
+
+<a href="property-detail.html?img=https%3A//images.unsplash.com/photo-1512917774080-9991f1c4c750&name=Premium%20Villa&price=%241%2C450%2C000&location=San%20Diego%2C%20CA&tag=For%20Sale&info=4%20Beds%20%E2%80%A2%204%20Baths%20%E2%80%A2%203000%20sqft" class="view-btn">View Details</a>
+</div>
+</div>
+
+</div>
+
+<div class="pagination">
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button>></button>
+</div>
+
+</div>
+
+</div>
+
+<section class="newsletter">
+
+<div>
+<h2>Subscribe to our newsletter</h2>
+<p>Get the latest property updates and news.</p>
+</div>
+
+<div>
+<input type="email" placeholder="Enter your email">
+<button>Subscribe</button>
+</div>
+
+</section>
+
+<footer class="site-footer">
+<div class="footer-grid">
+<div>
+<h3>UrbanNest</h3>
+<p>Your trusted real estate partner for buying, selling, renting and leasing premium residential &amp; commercial properties.</p>
+<div class="social-icons">
+<a href="#" aria-label="Facebook">📘</a>
+<a href="#" aria-label="Instagram">📷</a>
+<a href="#" aria-label="LinkedIn">💼</a>
+<a href="#" aria-label="Twitter">🐦</a>
+</div>
+</div>
+<div>
+<h3>Quick Links</h3>
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="rent.html">Rent</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+</ul>
+</div>
+<div>
+<h3>Company</h3>
+<ul>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="login.html">Login / Sign Up</a></li>
+</ul>
+</div>
+<div>
+<h3>Contact</h3>
+<p>contact@urbannest.com<br>+1 (650) 555-2026<br>Silicon Valley, CA</p>
+</div>
+</div>
+<div class="copyright">© 2026 UrbanNest Real Estate | All Rights Reserved</div>
+</footer>
+
+<script src="assets/site-extra.js"></script>
+</body>
+</html>
